@@ -1,0 +1,13 @@
+<%= render "shared/header"%>
+
+<div class="contents row">
+  <div class="container">
+    <%= form_with(model: @tweet, local: true) do |form| %>
+      <%= render 'shared/error_messages', model: form.object %>
+
+      <h3>投稿する</h3>
+      <%= form.text_area :text, placeholder: "今日達成したいことを宣言しましょう", rows: "5" %>
+      <%= form.submit "SEND" %>
+    <% end %>
+  </div>
+</div>
