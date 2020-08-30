@@ -1,4 +1,34 @@
 <%= render "shared/header"%>
 
-tweets#index
 <%= link_to "投稿する", new_tweet_path %>
+
+<div >
+  <% if user_signed_in? %>
+    <h3 class="top-page-title">タイムライン</h3>
+  <% else %>
+    <h3 class="top-page-title">みんなのヒトコト</h3>
+  <% end %>
+</div>
+
+<div >
+  <% if @tweets.count >= 1 %>
+    <% @tweets.each do |tweet| %>
+      <div class="tweet-top" >
+        <a href="/users/<%= tweet.user.id %>">
+          <%= tweet.user.name %>
+        </a>
+        <p><%= tweet.text %></p>
+        <%= image_tag tweet.image.variant(resize: "500x500") if tweet.image.attached? %>
+        <%= tweet.updated_at.to_s(:datetime_jp) %>
+      </div>
+    <% end %>
+  <% else %>
+    <div>
+      <h5>ここにあなたとフォローしているユーザーのヒトコトが表示されます。</h5>
+      <h5>プロフィールや投稿から共通点などを探してみましょう！</h5>
+      <div>
+        <%= link_to "探す", "#" %>
+      </div>
+    </div>
+  <% end %>
+</div>

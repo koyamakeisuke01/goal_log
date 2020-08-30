@@ -1,0 +1,14 @@
+<%= render "shared/header"%>
+<div>
+  <p><%= @name %>さんの投稿一覧</p>
+  <% @tweets.each do |tweet| %>
+    <div class="tweet-top" >
+      <a href="/users/<%= tweet.user.id %>">
+        <%= tweet.user.name %>
+      </a>
+      <p><%= tweet.text %></p>
+      <%= image_tag tweet.image.variant(resize: "500x500") if tweet.image.attached? %>
+      <%= tweet.updated_at.to_s(:datetime_jp) %>
+    </div>
+  <% end %>
+</div>
