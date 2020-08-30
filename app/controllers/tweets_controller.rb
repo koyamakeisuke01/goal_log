@@ -20,6 +20,12 @@ class TweetsController < ApplicationController
     end
   end
 
+  def destroy
+    tweet = Tweet.find(params[:id])
+    tweet.destroy
+    redirect_to user_path(current_user), :notice = "投稿を削除しました。"
+  end
+
   private
   def login_check
     unless user_signed_in?

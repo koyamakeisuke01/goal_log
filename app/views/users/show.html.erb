@@ -1,4 +1,5 @@
 <%= render "shared/header"%>
+<%= flash[:notice] %>
 <div>
   <p><%= @name %>さんの投稿一覧</p>
   <% @tweets.each do |tweet| %>
