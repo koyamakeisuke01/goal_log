@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
   before_action :login_check, only: :new
   def index
-    
+    @tweets = Tweet.includes(:user).order("created_at DESC")
   end
 
   def new
