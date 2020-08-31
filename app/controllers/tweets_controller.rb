@@ -41,6 +41,10 @@ class TweetsController < ApplicationController
     end
   end
 
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+
   private
   def login_check
     unless user_signed_in?

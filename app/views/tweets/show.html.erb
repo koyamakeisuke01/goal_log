@@ -1,0 +1,16 @@
+<%= render "shared/header"%>
+
+<div class="tweet-top" >
+  <a href="/users/<%= @tweet.user.id %>">
+    <%= @tweet.user.name %>
+  </a>
+  <div>
+    <% if user_signed_in? && current_user.id == @tweet.user_id %>
+      <%= link_to "編集", edit_tweet_path(@tweet.id) %>
+      <%= link_to "削除", tweet_path(@tweet.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+    <% end %>
+  </div>
+  <p><%= @tweet.text %></p>
+  <%= image_tag @tweet.image.variant(resize: "500x500") if @tweet.image.attached? %>
+  <%= @tweet.updated_at.to_s(:datetime_jp) %>
+</div>
