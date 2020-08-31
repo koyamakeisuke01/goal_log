@@ -23,7 +23,22 @@ class TweetsController < ApplicationController
   def destroy
     tweet = Tweet.find(params[:id])
     tweet.destroy
-    redirect_to user_path(current_user), :notice = "投稿を削除しました。"
+    redirect_to user_path(current_user), notice:  "投稿を削除しました。"
+  end
+
+  def edit
+    @tweet = Tweet.find(params[:id])
+  end
+
+  def update
+    tweet = Tweet.find(params[:id])
+    # 必須項目を正常に入力している場合、DBを更新トップページへ遷移
+    if tweet.update(tweet_params)
+      redirect_to root_path
+    # 未記入の項目がある場合、エラーメッセージを表示
+    else
+      render :edit
+    end
   end
 
   private
