@@ -29,6 +29,8 @@
           <%= f.file_field :image %>
         </div>
       </div>
+      <div id="image-list"></div>
+      <%= image_tag @tweet.image, id: 'tweet-img'  if @tweet.image.present? %>
       <div class="tweet-btn-contents">
         <%= f.submit "投稿する", class:"tweet-btn" %>
       </div>

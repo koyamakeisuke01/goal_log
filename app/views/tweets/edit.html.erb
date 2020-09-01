@@ -20,31 +20,29 @@
       </div>
 
 
-      <% if @tweet.image.attached? %>
+      <div class="img-upload">
         <div class="weight-bold-text">
           画像
         </div>
-        <%= image_tag @tweet.image.variant(resize: "500x500") %>
-        <div class="img-upload">
-          <div class="weight-bold-text">
-            クリックして異なる画像をアップロード
-            <%= f.file_field :image %>
-          </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image %>
+        </div>
+      </div>
+      <div id="image-list"></div>
+      <%= image_tag @tweet.image, id: 'tweet-img'  if @tweet.image.present? %>
 
-        </div>
-      <% else %>
-        <div class="img-upload">
-          <div class="weight-bold-text">
-            画像
-          </div>
-          <div class="click-upload">
-            <p>
-              クリックしてファイルをアップロード
-            </p>
-            <%= f.file_field :image %>
-          </div>
-        </div>
-      <% end %>
+
+
+
+
+
+
+
+
+      
       <div class="tweet-btn-contents">
         <%= f.submit "編集する", class:"tweet-btn" %>
       </div>
