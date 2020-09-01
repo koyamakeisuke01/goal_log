@@ -25,13 +25,13 @@
           <% end %>
         </div>
         <p><%= tweet.text %></p>
-        <%= image_tag tweet.image.variant(resize: "500x500") if tweet.image.attached? %>
+        <%= image_tag tweet.image.variant(resize: "300x300") if tweet.image.attached? %>
         <%= tweet.updated_at.to_s(:datetime_jp) %>
       </div>
     <% end %>
   <% else %>
     <div>
-      <h5>ここにあなたとフォローしているユーザーのヒトコトが表示されます。</h5>
+      <h5>ここにあなたとフォローしているユーザーの活動報告が表示されます。</h5>
       <h5>プロフィールや投稿から共通点などを探してみましょう！</h5>
       <div>
         <%= link_to "探す", "#" %>
