@@ -14,3 +14,26 @@
   <%= image_tag @tweet.image.variant(resize: "500x500") if @tweet.image.attached? %>
   <%= @tweet.updated_at.to_s(:datetime_jp) %>
 </div>
+
+<div class="tweet-top">
+  <% if current_user %>
+    <%= form_with(model: [@tweet, @comment], local: true) do |form| %>
+      <%= render 'shared/error_messages', model: form.object %>
+      <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+      <%= form.submit "投稿する" %>
+    <% end %>
+  <% else %>
+    <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+  <% end %>
+  <div class="tweet-top">
+    <h4>＜コメント一覧＞</h4>
+    <% if @comments %>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
+          <%= comment.text %>
+        </p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
