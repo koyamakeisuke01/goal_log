@@ -1,6 +1,7 @@
 class Tweet < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_many :comments
 
   validates :text, presence: true, unless: :was_attached?, length: { maximum: 140 }
 
