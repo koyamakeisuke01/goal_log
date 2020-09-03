@@ -10,32 +10,34 @@
   <% end %>
 </div>
 
-<div >
-  <% if @tweets.count >= 1 %>
-    <% @tweets.each do |tweet| %>
-      <div class="tweet-top" >
-        <a href="/users/<%= tweet.user.id %>">
-          <%= tweet.user.name %>
-        </a>
-        <div>
-          <%= link_to "詳細・コメント", tweet_path(tweet.id)%>
-          <% if user_signed_in? && current_user.id == tweet.user_id %>
-            <%= link_to "編集", edit_tweet_path(tweet.id) %>
-            <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-          <% end %>
+<div class="container">
+  <div >
+    <% if @tweets.count >= 1 %>
+      <% @tweets.each do |tweet| %>
+        <div class="tweet-top" >
+          <a href="/users/<%= tweet.user.id %>">
+            <%= tweet.user.name %>
+          </a>
+          <div>
+            <%= link_to "詳細・コメント", tweet_path(tweet.id)%>
+            <% if user_signed_in? && current_user.id == tweet.user_id %>
+              <%= link_to "編集", edit_tweet_path(tweet.id) %>
+              <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+            <% end %>
+          </div>
+          <p><%= tweet.text %></p>
+          <%= image_tag tweet.image.variant(resize: "300x300") if tweet.image.attached? %>
+          <%= tweet.updated_at.to_s(:datetime_jp) %>
         </div>
-        <p><%= tweet.text %></p>
-        <%= image_tag tweet.image.variant(resize: "300x300") if tweet.image.attached? %>
-        <%= tweet.updated_at.to_s(:datetime_jp) %>
+      <% end %>
+    <% else %>
+      <div>
+        <h5>ここにあなたとフォローしているユーザーの活動報告が表示されます。</h5>
+        <h5>プロフィールや投稿から共通点などを探してみましょう！</h5>
+        <div>
+          <%= link_to "探す", "#" %>
+        </div>
       </div>
     <% end %>
-  <% else %>
-    <div>
-      <h5>ここにあなたとフォローしているユーザーの活動報告が表示されます。</h5>
-      <h5>プロフィールや投稿から共通点などを探してみましょう！</h5>
-      <div>
-        <%= link_to "探す", "#" %>
-      </div>
-    </div>
-  <% end %>
+  </div>
 </div>
