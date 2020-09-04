@@ -1,41 +1,70 @@
 <%= render "shared/header"%>
 
-<%= link_to "投稿する", new_tweet_path %>
 
-<div >
-  <% if user_signed_in? %>
-    <h3 class="top-page-title">タイムライン</h3>
-  <% else %>
-    <h3 class="top-page-title">みんなの活動報告</h3>
-  <% end %>
-</div>
 
-<div >
-  <% if @tweets.count >= 1 %>
-    <% @tweets.each do |tweet| %>
-      <div class="tweet-top" >
-        <a href="/users/<%= tweet.user.id %>">
-          <%= tweet.user.name %>
-        </a>
-        <div>
-          <%= link_to "詳細・コメント", tweet_path(tweet.id)%>
-          <% if user_signed_in? && current_user.id == tweet.user_id %>
-            <%= link_to "編集", edit_tweet_path(tweet.id) %>
-            <%= link_to "削除", tweet_path(tweet.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-          <% end %>
-        </div>
-        <p><%= tweet.text %></p>
-        <%= image_tag tweet.image.variant(resize: "300x300") if tweet.image.attached? %>
-        <%= tweet.updated_at.to_s(:datetime_jp) %>
-      </div>
-    <% end %>
-  <% else %>
+<div class="container">
+
+  <div class="top-left">
+    <%= link_to "投稿する", new_tweet_path %>
     <div>
-      <h5>ここにあなたとフォローしているユーザーの活動報告が表示されます。</h5>
-      <h5>プロフィールや投稿から共通点などを探してみましょう！</h5>
-      <div>
-        <%= link_to "探す", "#" %>
+      ユーザ情報
+    </div>
+  </div>
+  <div class="top-right">
+    <div>
+      <% if user_signed_in? %>
+        <h3 class="top-page-title">タイムライン</h3>
+      <% else %>
+        <h3 class="top-page-title">みんなの活動報告</h3>
+      <% end %>
+    </div>
+
+    <div>
+      <div >
+        <% if @tweets.count >= 1 %>
+          <% @tweets.each do |tweet| %>
+            <div class="tweet-top">
+              <div class="tweet-name-and-crud">
+                <div>
+                  <a href="/users/<%= tweet.user.id %>", class="user-name">
+                    <%= tweet.user.name %>
+                  </a>
+                  <span class="tweet-date">・<%= tweet.updated_at.to_s(:datetime_jp) %></span>
+                </div>
+                <div class="tweet-crud">
+                  <%= link_to tweet_path(tweet.id), class:"show-link" do %>
+                    <i class="fas fa-info-circle"></i>詳細
+                  <% end %>
+                  <% if user_signed_in? && current_user.id == tweet.user_id %>
+                    <%= link_to edit_tweet_path(tweet.id), class:"edit-link" do %>
+                      <i class="fas fa-edit"></i>編集
+                    <% end %>
+                    <%= link_to tweet_path(tweet.id), class:"trash-link", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                      <i class="fas fa-trash"></i>削除
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="tweet-text">
+                <%=safe_join(tweet.text.split("\n"),tag(:br))%>
+              </div>
+              <%= image_tag tweet.image.variant(resize: "300x300") if tweet.image.attached? %>
+              
+            </div>
+          <% end %>
+        <% else %>
+          <div>
+            <h5>ここにあなたとフォローしているユーザーの活動報告が表示されます。</h5>
+            <h5>プロフィールや投稿から共通点などを探してみましょう！</h5>
+            <div>
+              <%= link_to "探す", "#" %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
+
 </div>
+
+

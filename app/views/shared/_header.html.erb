@@ -1,15 +1,53 @@
 <header class='top-page-header'>
   <div class='nav'>
     <ul class='lists-left'>
-      <%= link_to image_tag("logo-white.png", class:"furima-icon"), "/" %>
+      <%= link_to image_tag("logo-white.png", class:"goal-log-icon"), "/" %>
     </ul>
-    <ul class='lists-right'>
+    <ul class="ddmenu">
       <% if user_signed_in? %>
-        <li><%= link_to current_user.name, "#", class: "user-nickname" %></li> 
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <li>
+          <a href="#">
+            <i class="far fa-comments"></i> タイムライン
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-tasks"></i> タスク管理
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="far fa-address-card"></i> マイページ ▾
+          </a>
+          <ul>
+              <li>
+                <a href="#">
+                  <i class="fas fa-user-edit"></i> プロフィール編集
+                </a>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt"></i> ログアウト
+                <% end %>
+              </li>
+          </ul>
+        </li>
       <% else %>
-        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <li>
+          <%= link_to "#" do %>
+            <i class="far fa-comments"></i> みんなの活動報告
+          <% end %>
+        </li> 
+        <li>
+          <%= link_to new_user_session_path, class: "dd-login" do %>
+            <i class="fas fa-sign-in-alt"></i> ログイン
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_user_registration_path do %>
+            <i class="far fa-address-card"></i> 新規登録
+          <% end %>
+        </li>
       <% end %>
     </ul>
   </div>

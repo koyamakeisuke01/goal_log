@@ -21,8 +21,8 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    tweet = Tweet.find(params[:id])
-    tweet.destroy
+    @tweet = Tweet.find(params[:id])
+    @tweet.destroy
     redirect_to user_path(current_user), notice:  "投稿を削除しました。"
   end
 
