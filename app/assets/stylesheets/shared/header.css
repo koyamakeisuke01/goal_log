@@ -3,10 +3,12 @@
 }
 
 .top-page-header {
-  width: 100vw;
-  padding: 2vh 15vw;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  margin-right: 130px;
+  margin-left: 130px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .search-bar-contents {
@@ -15,7 +17,7 @@
   align-items: center;
 }
 
-.furima-icon {
+.goal-log-icon {
   width: 10vw;
   margin-right: 10vw;
 }
@@ -77,7 +79,6 @@
   align-items: flex-end;
 }
 
-
 .user-nickname {
   text-decoration: none;
   margin-right: 3vw;
@@ -101,4 +102,62 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+}
+
+ul.ddmenu {
+  margin: 0px;
+  padding: 0px 0px 0px 15px;
+}
+
+ul.ddmenu li {
+  width: 180px;
+  display: inline-block;  /* ★1:横並びに配置する */
+  list-style-type: none;  /* ★2:リストの先頭記号を消す */
+  position: relative;     /* ★3:サブメニュー表示の基準位置にする */
+}
+ul.ddmenu a {
+  color: #191970;              /*メニュー項目の文字色(白色) */
+  line-height: 40px;         /* メニュー項目のリンクの高さ(40px) */
+  text-align: center;        /*メインメニューの文字列の配置(中央寄せ) */
+  text-decoration: none;     /* メニュー項目の装飾(下線を消す) */
+  display: block;            /* ★4:項目内全域をリンク可能にする */
+}
+ul.ddmenu a:hover {
+  background-color: #f0f8ff;
+  color: #191970;
+}
+.dd-login {
+  margin-left: 45px;
+}
+
+/* -------------------- */
+/* ▼サブメニューの装飾 */
+/* -------------------- */
+ul.ddmenu ul {
+  display: none;       /* ★1:標準では非表示にする */
+  margin: 0px;         /* ★2:サブメニュー外側の余白(ゼロ) */
+  padding: 0px;        /* ★3:サブメニュー内側の余白(ゼロ) */
+  position: absolute;  /* ★4:絶対配置にする */
+}
+
+ul.ddmenu li:hover ul {
+  display: block;
+}
+
+ul.ddmenu ul li {
+  width: 180px;
+  border-top: 1px solid pink;
+}
+
+ul.ddmenu ul li a {
+  line-height: 35px;
+  text-align: left;
+  padding-left: 5px;
+  font-weight: normal;
+  width: 180px;
+}
+
+ul.ddmenu ul li a:hover {
+  background-color: #ffff80;
+  color: #005500;
 }
