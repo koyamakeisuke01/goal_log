@@ -19,7 +19,6 @@
         </div>
       </div>
 
-
       <div class="img-upload">
         <div class="weight-bold-text">
           画像
@@ -31,18 +30,8 @@
           <%= f.file_field :image %>
         </div>
       </div>
-      <div id="image-list"></div>
-      <%= image_tag @tweet.image, id: 'tweet-img'  if @tweet.image.present? %>
-
-
-
-
-
-
-
-
-
-      
+      <div id="image-preview"></div>
+      <%= image_tag @tweet.image.variant(resize: "300x300"), id: 'tweet-img'  if @tweet.image.present? %> 
       <div class="tweet-btn-contents">
         <%= f.submit "編集する", class:"tweet-btn" %>
       </div>

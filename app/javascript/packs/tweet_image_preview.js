@@ -1,6 +1,6 @@
-if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
+// if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
   document.addEventListener('DOMContentLoaded', function(){
-    const imageList = document.getElementById('image-list');
+    const imageList = document.getElementById('image-preview');
 
     const createImageHTML = (blob) => {
        // 画像を表示するためのdiv要素を生成
@@ -9,6 +9,9 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
       // 表示する画像を生成
       const blobImage = document.createElement('img');
       blobImage.setAttribute('src', blob);
+      blobImage.setAttribute('id', 'tweet-img');
+      blobImage.width = 400;
+      blobImage.height = 400;
 
       // 生成したHTMLの要素をブラウザに表示
       imageElement.appendChild(blobImage);
@@ -28,4 +31,4 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
       createImageHTML(blob);
     });
   });
-}
+// }

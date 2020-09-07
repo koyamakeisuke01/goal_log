@@ -1,15 +1,36 @@
 <%= render "shared/header"%>
-
-
-
 <div class="container">
-
   <div class="top-left">
-    <%= link_to "投稿する", new_tweet_path %>
-    <div>
-      ユーザ情報
+    <div class="user-info">
+      <div class="user-image">
+        プロフ画像
+      </div>
+      <div class="user-main">
+        <a href="/users/<%= current_user.id %>", class="user-name" >
+          <%= current_user.name %>
+        </a>
+      </div>
     </div>
+    <div class="">
+      <%= form_with(model: @tweet, local: true) do |f| %>
+        <%= render 'shared/error_messages', model: f.object %>
+        <div class="new-tweet-field">
+          <div class="tweet-post">
+            <%= f.text_area :text, class:"tweets-text", placeholder:"投稿内容（140文字まで）" ,rows:"7" ,maxlength:"140" %>
+          </div>
+        </div>
+        <div class="image-submit">    
+          <label class="form-image">
+            <i class="far fa-image fa-3x my-skyblue"></i>
+            <%= f.file_field :image, class: "hidden" %>
+          </label>
+          <%= f.submit "投稿する", class:"tweet-btn" %>
+        </div>
+        <div id="image-preview", class="preview-area"></div>
+      </div>
+    <% end %>
   </div>
+
   <div class="top-right">
     <div>
       <% if user_signed_in? %>
@@ -19,50 +40,46 @@
       <% end %>
     </div>
 
-    <div>
-      <div >
-        <% if @tweets.count >= 1 %>
-          <% @tweets.each do |tweet| %>
-            <div class="tweet-top">
-              <div class="tweet-name-and-crud">
-                <div>
-                  <a href="/users/<%= tweet.user.id %>", class="user-name">
-                    <%= tweet.user.name %>
-                  </a>
-                  <span class="tweet-date">・<%= tweet.updated_at.to_s(:datetime_jp) %></span>
-                </div>
-                <div class="tweet-crud">
-                  <%= link_to tweet_path(tweet.id), class:"show-link" do %>
-                    <i class="fas fa-info-circle"></i>詳細
-                  <% end %>
-                  <% if user_signed_in? && current_user.id == tweet.user_id %>
-                    <%= link_to edit_tweet_path(tweet.id), class:"edit-link" do %>
-                      <i class="fas fa-edit"></i>編集
-                    <% end %>
-                    <%= link_to tweet_path(tweet.id), class:"trash-link", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
-                      <i class="fas fa-trash"></i>削除
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-              <div class="tweet-text">
-                <%=safe_join(tweet.text.split("\n"),tag(:br))%>
-              </div>
-              <%= image_tag tweet.image.variant(resize: "300x300") if tweet.image.attached? %>
-              
-            </div>
-          <% end %>
-        <% else %>
-          <div>
-            <h5>ここにあなたとフォローしているユーザーの活動報告が表示されます。</h5>
-            <h5>プロフィールや投稿から共通点などを探してみましょう！</h5>
+    <% if @tweets.count >= 1 %>
+      <% @tweets.each do |tweet| %>
+        <div class="tweet-top">
+          <div class="tweet-name-and-crud">
             <div>
-              <%= link_to "探す", "#" %>
+              <a href="/users/<%= tweet.user.id %>", class="user-name">
+                <%= tweet.user.name %>
+              </a>
+              <span class="tweet-date">・<%= tweet.updated_at.to_s(:datetime_jp) %></span>
+            </div>
+            <div class="tweet-crud">
+              <%= link_to tweet_path(tweet.id), class:"show-link" do %>
+                <i class="fas fa-info-circle"></i>詳細
+              <% end %>
+              <% if user_signed_in? && current_user.id == tweet.user_id %>
+                <%= link_to edit_tweet_path(tweet.id), class:"edit-link" do %>
+                  <i class="fas fa-edit"></i>編集
+                <% end %>
+                <%= link_to tweet_path(tweet.id), class:"trash-link", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                  <i class="fas fa-trash"></i>削除
+                <% end %>
+              <% end %>
             </div>
           </div>
-        <% end %>
+          <div class="tweet-text">
+            <%=safe_join(tweet.text.split("\n"),tag(:br))%>
+          </div>
+          <%= image_tag tweet.image.variant(resize: "300x300") if tweet.image.attached? %>
+          
+        </div>
+      <% end %>
+    <% else %>
+      <div>
+        <h5>ここにあなたとフォローしているユーザーの活動報告が表示されます。</h5>
+        <h5>プロフィールや投稿から共通点などを探してみましょう！</h5>
+        <div>
+          <%= link_to "探す", "#" %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 
 </div>
