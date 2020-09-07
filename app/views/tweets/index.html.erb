@@ -5,11 +5,13 @@
       <div class="user-image">
         プロフ画像
       </div>
-      <div class="user-main">
-        <a href="/users/<%= current_user.id %>", class="user-name" >
-          <%= current_user.name %>
-        </a>
-      </div>
+      <% if user_signed_in? %>
+        <div class="user-main">
+          <a href="/users/<%= current_user.id %>", class="user-name" >
+            <%= current_user.name %>
+          </a>
+        </div>
+      <% end %>
     </div>
     <div class="">
       <%= form_with(model: @tweet, local: true) do |f| %>
@@ -32,14 +34,6 @@
   </div>
 
   <div class="top-right">
-    <div>
-      <% if user_signed_in? %>
-        <h3 class="top-page-title">タイムライン</h3>
-      <% else %>
-        <h3 class="top-page-title">みんなの活動報告</h3>
-      <% end %>
-    </div>
-
     <% if @tweets.count >= 1 %>
       <% @tweets.each do |tweet| %>
         <div class="tweet-top">
