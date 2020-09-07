@@ -1,0 +1,16 @@
+
+<%= form_with(model: @task, local: true) do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit 'タスクを登録する' , id: "submit" %>
+<% end %>
+
+<% @tasks.each do |task| %>
+<div class="">
+  <div class="">
+    投稿日時：<%= task.updated_at %>
+  </div>
+  <div class="">
+    <%= post.title %>
+  </div>
+</div>
+<% end %>
