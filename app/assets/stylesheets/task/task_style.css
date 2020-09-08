@@ -1,0 +1,11 @@
+.task-container {
+  margin-right: 130px;
+  margin-left: 130px;
+}
+
+.task-index {
+  margin-top: 2vh;
+  height: auto;
+  color: #272343;
+  border-radius: 0.3rem;
+}

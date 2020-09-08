@@ -1,16 +1,19 @@
-
-<%= form_with(model: @task, local: true) do |f| %>
-  <%= f.text_field :title %>
-  <%= f.submit 'タスクを登録する' , id: "submit" %>
-<% end %>
-
-<% @tasks.each do |task| %>
-<div class="">
-  <div class="">
-    投稿日時：<%= task.updated_at %>
+<%= render "shared/header"%>
+<div class="task-container">
+  <div class="new-tweet-field">
+    <%= form_with(model: @task, local: true) do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+      <%= f.text_field :title, class:"tweets-text", placeholder:"投稿内容（30文字まで）" ,rows:"1" ,maxlength:"30" %>
+      <%= f.submit 'タスクを登録する' , id: "submit" %>
+    <% end %>
   </div>
-  <div class="">
-    <%= post.title %>
+
+  <div class="task-index">
+    <% @tasks.each do |task| %>
+      <div class="tweets-text">
+        <%= task.title %>
+      </div>
+    <% end %>
   </div>
+    
 </div>
-<% end %>
