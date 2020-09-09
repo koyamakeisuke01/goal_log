@@ -33,7 +33,7 @@
       <div id="image-preview"></div>
       <%= image_tag @tweet.image.variant(resize: "300x300"), id: 'tweet-img'  if @tweet.image.present? %> 
       <div class="tweet-btn-contents">
-        <%= f.submit "編集する", class:"tweet-btn" %>
+        <%= f.submit "編集する", class:"edit-btn" %>
       </div>
 
     </div>

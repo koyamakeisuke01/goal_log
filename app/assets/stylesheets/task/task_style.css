@@ -10,18 +10,35 @@
   border-radius: 0.3rem;
 }
 
-.todo-tag {
+.todo-tab {
   display: flex;
   justify-content: space-around;
   margin-top: 3vh;
 }
 
-.task-text {
+.task-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-title{
   width: 100%;
   padding: 16px 16px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 16px;
   resize: none;
-  
+}
+
+.task-bottom {
+  margin-top: 2vh;
+  font-size: small;
+  text-align: right;
+}
+
+.task-main {
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 450px;
+  padding: 20vh 15vw;
 }
