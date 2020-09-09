@@ -82,3 +82,9 @@
   min-width: 450px;
   padding: 20vh 15vw;
 }
+
+.pagenation {
+  margin-top: 3vh;
+  margin-bottom: 5vh;
+  text-align: center;
+}
