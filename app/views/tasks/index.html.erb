@@ -7,6 +7,16 @@
       <%= f.submit '登録する' , id: "submit" %>
     <% end %>
   </div>
+  
+  <div class="task-search-field">
+    <%= search_form_for @q, class:"search-form", local: true do |f| %>
+      <%= f.search_field  :title_cont, placeholder: "キーワードからタスクを探す", class: 'input-box' %>
+      <label class="search-button">
+        <%= image_tag "search.png", class:"search-icon" %>
+        <%= f.submit '検索', class: "hidden" %>
+      </label>
+    <% end %>
+  </div>
 
   <div class="todo-tab">
     <div class="todo">

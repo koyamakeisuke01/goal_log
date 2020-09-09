@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
   
   def index
-    @tasks = Task.includes(:user).order("updated_at DESC")
+    @q = current_user.tasks.ransack(params[:q])
+    @tasks = @q.result(distinct: true).order("updated_at DESC")
     @task = Task.new
   end
 
