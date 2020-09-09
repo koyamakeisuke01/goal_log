@@ -1,0 +1,35 @@
+<div class="tweet-contents">
+
+  <header class="tweet-header">
+    <%= link_to image_tag('logo-gray.png' , size: '185x50'), tasks_path %>
+  </header>
+
+  <div class="task-main">
+    <h2 class="tweet-title">タスクを編集</h2>
+    <%= form_with(model: @task, local: true) do |f| %>
+
+      <%= render 'shared/error_messages', model: f.object %>
+
+      <div class="new-tweets">
+        <div class="tweets-explain">
+          <div class="weight-bold-text">
+            タイトル
+          </div>
+          <%= f.text_field :title, class:"tweets-text", placeholder:"タスク内容" ,rows:"1" %>
+        </div>
+      </div>
+
+      <div class="tweet-btn-contents">
+        <%= f.submit "編集する", class:"edit-btn" %>
+      </div>
+
+    </div>
+  <% end %>
+
+  <footer class="tweet-footer">
+    <p class="inc">
+      ©︎GOAL-LOG.
+    </p>
+  </footer>
+
+</div>

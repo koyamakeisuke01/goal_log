@@ -8,7 +8,7 @@
     <% end %>
   </div>
 
-  <div class="todo-tag">
+  <div class="todo-tab">
     <div class="todo">
       タスク一覧
     </div>
@@ -19,12 +19,27 @@
 
   <div class="task-index">
     <% @tasks.each do |task| %>
-      <div class="task-text">
-        <%= task.title %>
-        <div class="">
-          登録日時：<%= task.updated_at %>
+      <div class="task-title">
+        <div class="task-top">
+          <div>
+            <%= task.title %>
+          </div>
+          <div>
+            <% if user_signed_in? && current_user.id == task.user_id %>
+              <%= link_to edit_task_path(task.id), class:"edit-link" do %>
+                <i class="fas fa-edit"></i>編集
+              <% end %>
+              <%= link_to task_path(task.id), class:"trash-link", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                <i class="fas fa-trash"></i>削除
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="task-bottom">
+          登録日時：<%= task.updated_at.to_s(:datetime_jp) %>
         </div>
       </div>
+
       
     <% end %>
   </div>
