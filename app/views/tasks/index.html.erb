@@ -1,0 +1,32 @@
+<%= render "shared/header"%>
+<div class="task-container">
+  <div class="new-tweet-field">
+    <%= form_with(model: @task, local: true) do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+      <%= f.text_field :title, class:"tweets-text", placeholder:"登録したいタスクを記入してください" ,rows:"1" %>
+      <%= f.submit '登録する' , id: "submit" %>
+    <% end %>
+  </div>
+
+  <div class="todo-tag">
+    <div class="todo">
+      タスク一覧
+    </div>
+    <div class="done">
+      完了したタスク
+    </div>
+  </div>
+
+  <div class="task-index">
+    <% @tasks.each do |task| %>
+      <div class="task-text">
+        <%= task.title %>
+        <div class="">
+          登録日時：<%= task.updated_at %>
+        </div>
+      </div>
+      
+    <% end %>
+  </div>
+    
+</div>

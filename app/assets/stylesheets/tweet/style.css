@@ -37,7 +37,7 @@
 }
 
 .new-tweet-field {
-  width: 75%;
+  width: 80%;
 }
 
 .tweet-post {
@@ -194,7 +194,7 @@
 }
 
 .image-submit {
-  width: 75%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
 }
