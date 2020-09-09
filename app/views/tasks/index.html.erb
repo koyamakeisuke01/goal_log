@@ -48,10 +48,12 @@
         <div class="task-bottom">
           登録日時：<%= task.updated_at.to_s(:datetime_jp) %>
         </div>
-      </div>
-
-      
+      </div>  
     <% end %>
+    <div class="pagenation">
+      <%= paginate @tasks %>
+      <%= page_entries_info @tasks %>
+    </div>
   </div>
     
 </div>
