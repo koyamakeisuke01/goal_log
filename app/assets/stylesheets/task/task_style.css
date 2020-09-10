@@ -1,6 +1,39 @@
 .task-container {
   margin-right: 130px;
   margin-left: 130px;
+  margin-top: 65px;
+}
+
+.new-task-field {
+  width: 100%;
+}
+
+.tasks-text {
+  width: 100%;
+  padding: 16px 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+}
+
+.task-btn {
+  background-color: #1DA1F2;
+  color: white;
+  font-weight: bold;
+  border: none;
+  box-shadow: 2px 2px 4px grey;
+  border-radius: 1rem;
+  cursor: pointer;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 2vh;
+}
+
+.task-btn:hover {
+  background-color: #128bd6;
 }
 
 .task-index {
@@ -56,6 +89,38 @@
   margin-top: 3vh;
 }
 
+.select-back-color {
+  background-color: #2e4099;
+}
+
+.select-text-color {
+  color: white;
+}
+
+.todo {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #2e4099;
+}
+
+.todo-list {  
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.done {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #2e4099;
+}
+
+.done-list {
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .task-top {
   display: flex;
   justify-content: space-between;
@@ -68,6 +133,34 @@
   border: 1px solid #ccc;
   font-size: 16px;
   resize: none;
+}
+
+.done-link {
+  color: blue;
+  text-decoration: none;
+  margin-left: 20px;
+  text-align: right;
+  padding: 10px;
+  border-radius:100%;
+}
+
+.done-link:hover {
+  background-color:#E0FFFF;
+  color: blue;
+}
+
+.todo-link {
+  color: black;
+  text-decoration: none;
+  margin-left: 20px;
+  text-align: right;
+  padding: 10px;
+  border-radius:100%;
+}
+
+.todo-link:hover {
+  background-color: rgba(255, 248, 233, 0.979);
+  color: black;
 }
 
 .task-bottom {

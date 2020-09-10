@@ -20,6 +20,19 @@
     <% end %>
   </div>
 
+  <div class="todo-tab">
+    <div class="todo">
+      <%= link_to todo_task_path(:id), class: "todo-list" do %>
+        ToDoリスト( <%= @todo_tasks.count %> )
+      <% end %>
+    </div>
+    <div class="done select-back-color">
+      <%= link_to done_task_path(:id), class: "done-list select-text-color" do %>
+        完了したタスク( <%= @done_tasks.count %> )
+      <% end %>
+    </div>
+  </div>
+
   <div class="task-index">
     <% @tasks.each do |task| %>
       <div class="task-title">
@@ -30,18 +43,18 @@
           <div>
             <% if user_signed_in? && current_user.id == task.user_id %>
               <%= link_to edit_task_path(task.id), class:"edit-link" do %>
-                <i class="fas fa-edit"></i>編集
+                <i class="fas fa-edit"></i> 編集
               <% end %>
               <%= link_to task_path(task.id), class:"trash-link", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
-                <i class="fas fa-trash"></i>削除
+                <i class="fas fa-trash"></i> 削除
               <% end %>
               <% if task.done? %>
                 <%= link_to check_task_path(task.id), class:"todo-link" do %>
-                  <i class="fas fa-tasks"></i>未完了に戻す
+                  <i class="fas fa-tasks"></i> 未完了に戻す
                 <% end %>
               <% else %>
                 <%= link_to check_task_path(task.id), class:"done-link" do %>
-                  <i class="far fa-check-square"></i>完了！
+                  <i class="far fa-check-square"></i> 完了！
                 <% end %>
               <% end %>
             <% end %>
