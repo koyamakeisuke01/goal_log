@@ -7,5 +7,10 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
   resources :users
-  resources :tasks
+  resources :tasks do
+    member do
+    # collection do
+      get :todo, :done, :check
+    end
+  end
 end
