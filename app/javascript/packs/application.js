@@ -8,6 +8,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("./tweet_image_preview")
+require("./profile_avatar_preview")
 
 import '@fortawesome/fontawesome-free/js/all';
 
