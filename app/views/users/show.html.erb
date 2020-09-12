@@ -14,14 +14,14 @@
         <div class="show-user-name">
           <%= @user.name %>
         </div>
-        <div>
+        <div class="edit-user-btn-area">
           <% if @user == current_user %>
-            <%= link_to "プロフィールを編集", edit_user_path %>
+            <%= link_to "プロフィールを編集", edit_user_path, class:"edit-user-btn" %>
           <% end %>
         </div>
       </div>
     </div>
-    <div>
+    <div class="introduction-area">
       <%= @user.introduction %>
     </div>
   </div>

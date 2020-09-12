@@ -21,9 +21,9 @@
           </a>
           <ul>
               <li>
-                <%= link_to edit_user_path(:id) do %>
+                <a href="/users/<%= current_user.id %>/edit">
                   <i class="fas fa-user-edit"></i> プロフィール編集
-                <% end %> 
+                </a> 
               </li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>

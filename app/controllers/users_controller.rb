@@ -22,8 +22,8 @@ class UsersController < ApplicationController
   end
 
   def user_check
-    user = User.find(params[:id])
-    if user_signed_in? && current_user.id != user.id
+    @user = User.find(params[:id])
+    if user_signed_in? && current_user.id != @user.id
       redirect_to root_path
     end
   end
