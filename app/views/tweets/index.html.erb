@@ -3,9 +3,9 @@
   <div class="top-left">
     <div class="user-info">
       <div class="user-image">
-        プロフ画像
-        <div class="avatar_image">
-        </div>
+        <% if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar, class: "avatar_image" %>
+        <% end %>
       </div>
       <% if user_signed_in? %>
         <div class="user-main">
@@ -61,7 +61,7 @@
             </div>
           </div>
           <div class="tweet-text">
-            <%=safe_join(tweet.text.split("\n"),tag(:br))%>
+            <%= safe_join(tweet.text.split("\n"),tag(:br)) %>
           </div>
           <%= image_tag tweet.image.variant(resize: "300x300") if tweet.image.attached? %>
           
