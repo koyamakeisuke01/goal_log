@@ -1,39 +1,41 @@
 <%= render "shared/header"%>
 <div class="container">
   <div class="top-left">
-    <div class="user-info">
-      <div class="user-image">
-        <% if current_user.avatar.attached? %>
-          <%= image_tag current_user.avatar, class: "avatar_image" %>
-        <% else %>
-          <%= image_tag("default-avatar.jpg", class:"avatar_image") %>
-        <% end %>
-      </div>
-      <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <div class="user-info">
+        <div class="user-image">
+          <% if current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, class: "avatar_image" %>
+          <% else %>
+            <%= image_tag("default-avatar.jpg", class:"avatar_image") %>
+          <% end %>
+        </div>        
         <div class="user-main">
           <a href="/users/<%= current_user.id %>", class="profile-user-name" >
             <%= current_user.name %>
           </a>
         </div>
-      <% end %>
-    </div>
-    <div class="">
-      <%= form_with(model: @tweet, local: true) do |f| %>
-        <%= render 'shared/error_messages', model: f.object %>
-        <div class="new-tweet-field">
-          <div class="tweet-post">
-            <%= f.text_area :text, class:"tweets-text", placeholder:"投稿内容（140文字まで）" ,rows:"7" ,maxlength:"140" %>
-          </div>
-        </div>
-        <div class="image-submit">    
-          <label class="form-image">
-            <i class="far fa-image fa-3x my-skyblue"></i>
-            <%= f.file_field :image, class: "hidden" %>
-          </label>
-          <%= f.submit "投稿する", class:"tweet-btn" %>
-        </div>
-        <div id="image-preview", class="preview-area"></div>
       </div>
+      <div class="">
+        <%= form_with(model: @tweet, local: true) do |f| %>
+          <%= render 'shared/error_messages', model: f.object %>
+          <div class="new-tweet-field">
+            <div class="tweet-post">
+              <%= f.text_area :text, class:"tweets-text", placeholder:"投稿内容（140文字まで）" ,rows:"7" ,maxlength:"140" %>
+            </div>
+          </div>
+          <div class="image-submit">    
+            <label class="form-image">
+              <i class="far fa-image fa-3x my-skyblue"></i>
+              <%= f.file_field :image, class: "hidden" %>
+            </label>
+            <%= f.submit "投稿する", class:"tweet-btn" %>
+          </div>
+          <div id="image-preview", class="preview-area"></div>
+        </div>
+      <% end %>
+    <% else %>
+      ログインしてね！
     <% end %>
   </div>
 
@@ -43,6 +45,15 @@
         <div class="tweet-top">
           <div class="tweet-name-and-crud">
             <div>
+
+              
+              <% if tweet.user.avatar.attached? %>
+                <%= image_tag tweet.user.avatar, class: "tweet-avatar" %>
+              <% else %>
+                <%= image_tag("default-avatar.jpg", class:"tweet-avatar") %>
+              <% end %>
+              
+
               <a href="/users/<%= tweet.user.id %>", class="user-name">
                 <%= tweet.user.name %>
               </a>

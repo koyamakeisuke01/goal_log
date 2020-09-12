@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    login_check
     user_check
   end
 
@@ -19,6 +20,12 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:avatar, :name, :email, :introduction)
+  end
+
+  def login_check
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 
   def user_check
