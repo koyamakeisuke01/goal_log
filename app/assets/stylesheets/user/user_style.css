@@ -1,15 +1,37 @@
 .user-edit-profile {
   text-align: center;
   font-weight: bold;
-  font-size: large;
-  margin-top: 3vh;
+  font-size: 20px;
+  margin-top: 6vh;
 }
 
-.user-edit-area {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+.user-edit-main {
+  margin-left: 33.3333333333%;
+  margin-right: 33.3333333333%;
+}
+
+.user-edit-field {
+  margin-top: 4vh;
+  margin-left: 3vw;
+}
+
+.edit-avatar-field {
+  margin-left: auto;
+  margin-right: auto;
+  width: 12em
+}
+
+.user-edit-center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 12em
+}
+
+.tweet-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  object-fit: cover;
 }
 
 .avatar_image {
@@ -17,4 +39,63 @@
   height: 200px;
   border-radius: 100px;
   object-fit: cover;
+}
+
+.edit-user-btn-area {
+  margin-top: 5vh;
+}
+
+.edit-user-btn {
+  text-decoration: none;
+  margin-bottom: 5vh;
+  background-color: white;
+  color: rgb(29, 161, 242);
+  font-weight: bold;
+  border: 1px solid rgb(29, 161, 242);
+  border-radius: 3rem;
+  cursor: pointer;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.edit-user-btn:hover {
+  background-color: #e8f5fb;
+}
+
+.introduction-area {
+  margin-top: 2vh;
+  width: 80%;
+}
+
+.edit-avatar_image {
+  margin-top: 2vh;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.user-edit-btn {
+  width: 30%;
+  margin-bottom: 5vh;
+  background-color: #1DA1F2;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  box-shadow: 2px 2px 4px grey;
+  border-radius: 3rem;
+  cursor: pointer;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 2vh;
+  margin-left: 40%;
+}
+
+.user-edit-btn:hover {
+  background-color: #128bd6;
 }

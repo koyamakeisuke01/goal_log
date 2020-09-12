@@ -4,20 +4,25 @@
   <div class="top-left">
     <div class="user-info">
       <div class="user-image">
-        プロフ画像
-        <div class="avatar_image">
-          <% if current_user.avatar.attached? %>
-            <%= image_tag current_user.avatar, class: "avatar_image" %>
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar, class: "avatar_image" %>
+        <% else %>
+          <%= image_tag("default-avatar.jpg", class:"avatar_image") %>
+        <% end %>
+      </div>
+      <div class="user-main">
+        <div class="show-user-name">
+          <%= @user.name %>
+        </div>
+        <div class="edit-user-btn-area">
+          <% if @user == current_user %>
+            <%= link_to "プロフィールを編集", edit_user_path, class:"edit-user-btn" %>
           <% end %>
         </div>
       </div>
-      <%= current_user.name %>
     </div>
-    <div>
-      <%= current_user.introduction %>
-    </div>
-    <div>
-      <%= link_to "プロフィールを編集", edit_user_path %>
+    <div class="introduction-area">
+      <%= @user.introduction %>
     </div>
   </div>
 

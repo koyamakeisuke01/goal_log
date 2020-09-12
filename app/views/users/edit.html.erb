@@ -3,44 +3,47 @@
   プロフィールを編集
 </div>
 
-<div class='account-page' id='account-page'>
-  <div class='account-page__inner clearfix'>
-    <div class='account-page__inner--right user-form'>
-      <%= form_with model: current_user, local: true do |f|%>
-        <%= render 'shared/error_messages', model: f.object %>
-        <label class="form-image">
-          <i class="far fa-image fa-3x my-skyblue"></i>
-          <%= f.file_field :avatar, class: "hidden" %>
-        </label>
-        <div id="avatar-preview", class="preview-area"></div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :name, "名前" %>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :name, autofocus: true %>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :email, "メールアドレス" %>
-          </div>
-          <div class='field-input'>
-            <%= f.email_field :email %>
-          </div>
-        </div>
-        <div class='field'>
-          <div class='field-label'>
-            <%= f.label :introduction, "自己紹介"  %>
-          </div>
-          <div class='field-input'>
-            <%= f.text_field :introduction %>
-          </div>
-        </div>
-        <div class='actions'>
-          <%= f.submit "保存", class: 'btn'%>
-        </div>
+<div class='user-edit-main'>
+  <%= form_with model: current_user, local: true do |f|%>
+    <%= render 'shared/error_messages', model: f.object %>
+    <div class="edit-avatar-field">    
+      <div id="avatar-preview"></div>
+      <% if current_user.avatar.present? %>
+        <%= image_tag current_user.avatar, id: 'user-avatar', class: "edit-avatar_image" %> 
+      <% else %>
+        <%= image_tag("default-avatar.jpg", id: 'user-avatar', class:"avatar_image edit-avatar_image") %>
       <% end %>
+      <label class="form-image">
+        <i class="far fa-image fa-3x my-skyblue"></i>
+        <%= f.file_field :avatar, class: "hidden" %>
+      </label>
     </div>
-  </div>
+    <div class='user-edit-field'>
+      <div class='weight-bold-text'>
+        <%= f.label :name, "名前" %>
+      </div>
+      <div class='field-input'>
+        <%= f.text_field :name, class:"tweets-text", autofocus: true %>
+      </div>
+    </div>
+    <div class='user-edit-field'>
+      <div class='weight-bold-text'>
+        <%= f.label :email, "メールアドレス" %>
+      </div>
+      <div class='field-input'>
+        <%= f.email_field :email, class:"tweets-text" %>
+      </div>
+    </div>
+    <div class='user-edit-field'>
+      <div class='weight-bold-text'>
+        <%= f.label :introduction, "自己紹介"  %>
+      </div>
+      <div class='field-input'>
+        <%= f.text_area :introduction, class:"tweets-text" , rows:"7" %>
+      </div>
+    </div>
+    <div class='actions'>
+      <%= f.submit "保存", class: 'user-edit-btn'%>
+    </div>
+  <% end %>
 </div>
