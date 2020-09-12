@@ -101,6 +101,21 @@
 
 .user-name {
   font-weight: bold;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 1vh;
+}
+
+.profile-user-name {
+  font-weight: bold;
+  font-size: large;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 1vh;
+}
+
+.show-user-name {
+  font-weight: bold;
   font-size: large;
   text-decoration: none;
   color: black;
@@ -108,6 +123,10 @@
 }
 
 .user-name:hover {
+  border-bottom: 1px solid black
+}
+
+.profile-user-name:hover {
   border-bottom: 1px solid black
 }
 

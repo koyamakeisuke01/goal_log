@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   def show
-    user = User.find(params[:id])
-    @name = user.name
-    @tweets = user.tweets.order("updated_at DESC")
+    @user = User.find(params[:id])
+    @tweets = @user.tweets.order("updated_at DESC")
   end
 
-  def edit    
+  def edit
+    user_check
   end
 
   def update
@@ -19,5 +19,12 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:avatar, :name, :email, :introduction)
+  end
+
+  def user_check
+    user = User.find(params[:id])
+    if user_signed_in? && current_user.id != user.id
+      redirect_to root_path
+    end
   end
 end

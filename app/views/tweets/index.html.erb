@@ -5,11 +5,13 @@
       <div class="user-image">
         <% if current_user.avatar.attached? %>
           <%= image_tag current_user.avatar, class: "avatar_image" %>
+        <% else %>
+          <%= image_tag("default-avatar.jpg", class:"avatar_image") %>
         <% end %>
       </div>
       <% if user_signed_in? %>
         <div class="user-main">
-          <a href="/users/<%= current_user.id %>", class="user-name" >
+          <a href="/users/<%= current_user.id %>", class="profile-user-name" >
             <%= current_user.name %>
           </a>
         </div>

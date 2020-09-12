@@ -8,7 +8,11 @@
     <%= render 'shared/error_messages', model: f.object %>
     <div class="edit-avatar-field">    
       <div id="avatar-preview"></div>
-      <%= image_tag current_user.avatar, id: 'user-avatar', class: "edit-avatar_image"  if current_user.avatar.present? %> 
+      <% if current_user.avatar.present? %>
+        <%= image_tag current_user.avatar, id: 'user-avatar', class: "edit-avatar_image" %> 
+      <% else %>
+        <%= image_tag("default-avatar.jpg", id: 'user-avatar', class:"avatar_image edit-avatar_image") %>
+      <% end %>
       <label class="form-image">
         <i class="far fa-image fa-3x my-skyblue"></i>
         <%= f.file_field :avatar, class: "hidden" %>
