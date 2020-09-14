@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :comments, only: :create
   end
+  resources :comments
   resources :users
   resources :tasks do
     member do

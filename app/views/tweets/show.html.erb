@@ -1,39 +1,110 @@
 <%= render "shared/header"%>
-
-<div class="tweet-top" >
-  <a href="/users/<%= @tweet.user.id %>">
-    <%= @tweet.user.name %>
-  </a>
-  <div>
-    <% if user_signed_in? && current_user.id == @tweet.user_id %>
-      <%= link_to "編集", edit_tweet_path(@tweet.id) %>
-      <%= link_to "削除", tweet_path(@tweet.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-    <% end %>
+<div class='tweet-show-main'>
+  <div class="tweet-all">
+    <div class="tweet-left">
+      <% if @tweet.user.avatar.attached? %>
+        <%= link_to user_path(@tweet.user.id) do %>
+          <%= image_tag @tweet.user.avatar, class: "tweet-avatar" %>
+        <% end %>
+      <% else %>
+        <%= link_to user_path(@tweet.user.id) do %>
+          <%= image_tag("default-avatar.jpg", class:"tweet-avatar") %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="tweet-right">
+      <div class="tweet-left-name">
+        <a href="/users/<%= @tweet.user.id %>", class="user-name">
+          <%= @tweet.user.name %>
+        </a>
+        <span class="tweet-date">・<%= @tweet.updated_at.to_s(:datetime_jp) %></span>
+      </div>
+      <div class="tweet-right-crud">
+        <% if user_signed_in? && current_user.id == @tweet.user_id %>
+          <%= link_to edit_tweet_path(@tweet.id), class:"edit-link" do %>
+            <i class="fas fa-edit"></i>編集
+          <% end %>
+          <%= link_to tweet_path(@tweet.id), class:"trash-link", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+            <i class="fas fa-trash"></i>削除
+          <% end %>
+        <% end %>
+      </div>
+      <div class="tweet-show-bottom-text">
+        <%= safe_join(@tweet.text.split("\n"),tag(:br)) %>
+        <div>
+          <% if @tweet.image.attached? %>
+            <%= image_tag @tweet.image, class: "tweet-bottom-image" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-  <p><%= @tweet.text %></p>
-  <%= image_tag @tweet.image.variant(resize: "500x500") if @tweet.image.attached? %>
-  <%= @tweet.updated_at.to_s(:datetime_jp) %>
-</div>
 
-<div class="tweet-top">
   <% if current_user %>
     <%= form_with(model: [@tweet, @comment], local: true) do |form| %>
       <%= render 'shared/error_messages', model: form.object %>
-      <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-      <%= form.submit "投稿する" %>
+      <div class="new-comment-field">
+        <div class="comment-post">
+          <%= form.text_area :text, class:"comments-text", placeholder:"コメントする" ,rows:"3" ,maxlength:"140" %>
+        </div>
+        <div>
+          <%= form.submit "返信", class:"comment-btn" %>
+        </div>        
+      </div>
     <% end %>
   <% else %>
-    <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <div class="comment-area-must-login">
+      ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+    </div>
+    <div class="signin-or-login">
+      <div class="comment-signin">
+        <%= link_to "新規登録", new_user_registration_path, class: "comment-signin-btn" %>
+      </div>
+      <div class="comment-login">
+        <%= link_to "ログイン", new_user_session_path, class: "comment-login-btn" %>
+      </div>
+    </div>
   <% end %>
-  <div class="tweet-top">
-    <h4>＜コメント一覧＞</h4>
-    <% if @comments %>
-      <% @comments.each do |comment| %>
-        <p>
-          <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %>：</strong>
-          <%= comment.text %>
-        </p>
-      <% end %>
+
+
+  <div class="comment-area"></div>
+  <% if @comments %>
+    <% @comments.each do |comment| %>
+      <div class="tweet-all">
+        <div class="tweet-left">
+          <% if comment.user.avatar.attached? %>
+            <%= link_to user_path(comment.user.id) do %>
+              <%= image_tag comment.user.avatar, class: "tweet-avatar" %>
+            <% end %>
+          <% else %>
+            <%= link_to user_path(comment.user.id) do %>
+              <%= image_tag("default-avatar.jpg", class:"tweet-avatar") %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="tweet-right">
+          <div class="tweet-left-name">
+            <a href="/users/<%= comment.user.id %>", class="user-name">
+              <%= comment.user.name %>
+            </a>
+            <span class="tweet-date">・<%= comment.updated_at.to_s(:datetime_jp) %></span>
+          </div>
+          <div class="tweet-right-crud">
+            <% if user_signed_in? && current_user.id == comment.user_id %>
+              <%= link_to edit_comment_path(comment.id, comment.tweet.id), class:"edit-link" do %>
+                <i class="fas fa-edit"></i>編集
+              <% end %>
+              <%= link_to comment_path(comment.id), class:"trash-link", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                <i class="fas fa-trash"></i>削除
+              <% end %>
+            <% end %>
+          </div>
+          <div class="tweet-bottom-text">
+            <%= safe_join(comment.text.split("\n"),tag(:br)) %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </div>
+  <% end %>
+    
 </div>
