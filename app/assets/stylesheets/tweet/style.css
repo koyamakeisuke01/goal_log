@@ -343,6 +343,66 @@
   margin-top: 4vh;
 }
 
+.comment-area-must-login {
+  margin-top: 4vh;
+  text-align: center;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.signin-or-login {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2vh;
+}
+
+.comment-signin-btn {
+  background-color: rgb(61, 224, 83);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  box-shadow: 2px 2px 4px grey;
+  border-radius: 3rem;
+  cursor: pointer;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+  margin-left: 1vw;
+}
+
+.comment-signin-btn:hover {
+  background-color: rgb(1, 158, 1);
+}
+
+.comment-login-btn {
+  background-color: rgb(61, 172, 224);
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 2px 2px 4px grey;
+  border-radius: 3rem;
+  cursor: pointer;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+  margin-left: 1vw;
+}
+
+.comment-login-btn:hover {
+  background-color: rgb(5, 93, 151);
+}
+
 .new-comment-field {
   margin-top: 6vh;
   width: 100%;

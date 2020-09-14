@@ -53,7 +53,17 @@
       </div>
     <% end %>
   <% else %>
-    <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <div class="comment-area-must-login">
+      ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+    </div>
+    <div class="signin-or-login">
+      <div class="comment-signin">
+        <%= link_to "新規登録", new_user_registration_path, class: "comment-signin-btn" %>
+      </div>
+      <div class="comment-login">
+        <%= link_to "ログイン", new_user_session_path, class: "comment-login-btn" %>
+      </div>
+    </div>
   <% end %>
 
 
@@ -81,10 +91,10 @@
           </div>
           <div class="tweet-right-crud">
             <% if user_signed_in? && current_user.id == comment.user_id %>
-              <%= link_to edit_tweet_path(comment.id), class:"edit-link" do %>
+              <%= link_to edit_comment_path(comment.id, comment.tweet.id), class:"edit-link" do %>
                 <i class="fas fa-edit"></i>編集
               <% end %>
-              <%= link_to tweet_path(comment.id), class:"trash-link", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+              <%= link_to comment_path(comment.id), class:"trash-link", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
                 <i class="fas fa-trash"></i>削除
               <% end %>
             <% end %>

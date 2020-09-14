@@ -1,0 +1,33 @@
+<div class="tweet-contents">
+
+  <header class="tweet-header">
+    <%= link_to image_tag('logo-gray.png' , size: '185x50'), "/" %>
+  </header>
+
+  <div class="tweet-main">
+    <h2 class="tweet-title">コメントを編集</h2>
+    <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+
+      <%= render 'shared/error_messages', model: f.object %>
+
+      <div class="new-tweets">
+        <div class="tweets-explain">
+          <div class="weight-bold-text">
+            コメント文
+          </div>
+          <%= f.text_area :text, class:"tweets-text", placeholder:"コメントを編集" ,rows:"3" %>
+        </div>
+      </div>
+      <div class="tweet-btn-contents">
+        <%= f.submit "編集する", class:"edit-btn" %>
+      </div>
+
+    </div>
+  <% end %>
+  
+  <footer class="tweet-footer">
+    <p class="inc">
+      ©︎GOAL-LOG.
+    </p>
+  </footer>
+</div>

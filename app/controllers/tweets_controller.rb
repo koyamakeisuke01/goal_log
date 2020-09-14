@@ -42,7 +42,7 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
     @comment = Comment.new
-    @comments = @tweet.comments.includes(:user).order(created_at: :desc)
+    @comments = @tweet.comments.includes(:user).order(updated_at: :desc)
   end
 
   private
