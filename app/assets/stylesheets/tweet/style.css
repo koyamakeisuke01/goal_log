@@ -319,8 +319,75 @@
   padding-bottom: 1vh;
 }
 
+.tweet-show-bottom-text {
+  font-size: x-large;
+  clear: both;
+  margin-left: 0.5vw;
+  padding-top: 2vh;
+  padding-bottom: 1vh;
+}
+
 .tweet-bottom-image {
   margin-top: 1vh;
   width: 50%;
   height: 30vh;
+}
+
+.tweet-show-main {
+  margin-top: 10vh;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.comment-area {
+  margin-top: 4vh;
+}
+
+.new-comment-field {
+  margin-top: 6vh;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.comment-post {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2vh;
+  height: auto;
+  color: #272343;
+  border-radius: 0.3rem;
+  width: 80%;
+}
+
+.comments-text {
+  justify-content: flex-end;
+  width: 75%;
+  padding: 16px 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+}
+
+.comment-btn {
+  background-color: #1DA1F2;
+  color: white;
+  font-weight: bold;
+  border: none;
+  box-shadow: 2px 2px 4px grey;
+  border-radius: 3rem;
+  cursor: pointer;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+  margin-left: 1vw;
+}
+
+.comment-btn:hover {
+  background-color: #128bd6;
 }
