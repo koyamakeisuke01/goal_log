@@ -22,22 +22,33 @@
       </div>
     </div>
     <div class="introduction-area">
-      <%= @user.introduction %>
+      <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
     </div>
   </div>
 
   <div class="top-right">
     <% if @tweets.count >= 1 %>
       <% @tweets.each do |tweet| %>
-        <div class="tweet-top">
-          <div class="tweet-name-and-crud">
-            <div>
+        <div class="tweet-all">
+          <div class="tweet-left">
+            <% if tweet.user.avatar.attached? %>
+              <%= link_to user_path(tweet.user.id) do %>
+                <%= image_tag tweet.user.avatar, class: "tweet-avatar" %>
+              <% end %>
+            <% else %>
+              <%= link_to user_path(tweet.user.id) do %>
+                <%= image_tag("default-avatar.jpg", class:"tweet-avatar") %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="tweet-right">
+            <div class="tweet-left-name">
               <a href="/users/<%= tweet.user.id %>", class="user-name">
                 <%= tweet.user.name %>
               </a>
               <span class="tweet-date">・<%= tweet.updated_at.to_s(:datetime_jp) %></span>
             </div>
-            <div class="tweet-crud">
+            <div class="tweet-right-crud">
               <%= link_to tweet_path(tweet.id), class:"show-link" do %>
                 <i class="fas fa-info-circle"></i>詳細
               <% end %>
@@ -50,17 +61,21 @@
                 <% end %>
               <% end %>
             </div>
+            <div class="tweet-bottom-text">
+              <%= safe_join(tweet.text.split("\n"),tag(:br)) %>
+              <div>
+                <% if tweet.image.attached? %>
+                  <%= image_tag tweet.image, class: "tweet-bottom-image" %>
+                <% end %>
+              </div>
+            </div>
           </div>
-          <div class="tweet-text">
-            <%=safe_join(tweet.text.split("\n"),tag(:br))%>
-          </div>
-          <%= image_tag tweet.image.variant(resize: "300x300") if tweet.image.attached? %> 
         </div>
       <% end %>
     <% else %>
       <div>
-        <h5>ここに<%= @name %>さんが投稿した活動報告の一覧が表示されます。</h5><br>
-        <h5>他のユーザーの目を活用するために、活動報告を投稿して行動力を爆上げしましょう！</h5><br><br>
+        <h5>ここに<%= @user.name %>さんが投稿した活動報告の一覧が表示されます。</h5><br>
+        <h5>他のユーザーの目を活用し行動力を爆上げするために、活動報告を投稿しましょう！</h5><br><br>
         <%= link_to "活動報告を投稿する", root_path %>
       </div>
     <% end %>
