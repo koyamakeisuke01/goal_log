@@ -84,6 +84,11 @@
           </div>
         </div>
       <% end %>
+      <div class="pagenation">
+        <%= paginate @tweets %>
+        <%= page_entries_info @tweets %>
+      </div>
+    </div>
     <% else %>
       <div>
         <h5>ここにあなたとフォローしているユーザーの活動報告が表示されます。</h5>
