@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resources :users
   resources :tasks do
     member do
-    # collection do
       get :todo, :done, :check
     end
   end

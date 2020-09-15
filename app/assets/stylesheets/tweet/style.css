@@ -451,3 +451,12 @@
 .comment-btn:hover {
   background-color: #128bd6;
 }
+
+.pagenation-tweets {
+  display: none;
+}
+
+.jscroll {
+  margin: 0;
+  max-width: 100%;
+}
