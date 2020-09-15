@@ -28,6 +28,9 @@
     <div class='login-btn'>
       <%= f.submit "ログイン" ,class:"login-red-btn" %>
     </div>
+    <div class='guest-login-btn'>
+      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class:"guest-login-blue-btn", method: :post %>
+    </div>
   </div>
 <% end %>
 

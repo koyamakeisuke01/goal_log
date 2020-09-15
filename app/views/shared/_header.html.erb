@@ -6,7 +6,7 @@
     <ul class="ddmenu">
       <% if user_signed_in? %>
         <li>
-          <%= link_to root_path do %>
+          <%= link_to tweets_path do %>
             <i class="far fa-comments"></i> タイムライン
           <% end %>
         </li>
@@ -34,7 +34,7 @@
         </li>
       <% else %>
         <li>
-          <%= link_to "#" do %>
+          <%= link_to tweets_path do %>
             <i class="far fa-comments"></i> みんなの活動報告
           <% end %>
         </li> 

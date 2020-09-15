@@ -1,7 +1,14 @@
 .login-btn {
   width: 50%;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 30px;
+}
+
+.guest-login-btn {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10vh;
+  text-align: center;
 }
 
 .login-red-btn {
@@ -11,6 +18,17 @@
   color: #fff;
   line-height: 48px;
   font-size: 14px;
+  cursor: pointer;
+}
+
+.guest-login-blue-btn {
+  width: 100%;
+  background: #0817f3;
+  text-decoration: none;
+  border-radius: 2rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 24px;
   cursor: pointer;
 }
 
