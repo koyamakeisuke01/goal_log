@@ -1,7 +1,6 @@
 class TweetsController < ApplicationController
   before_action :login_check, only: :new
   def index
-    # @tweets = Tweet.includes(:user).order("updated_at DESC")
     @tweets = Tweet.includes(:user).page(params[:page]).per(10).order("updated_at DESC")
     @tweet = Tweet.new
   end
@@ -16,7 +15,7 @@ class TweetsController < ApplicationController
       @tweet.save
       redirect_to tweets_path
     else
-      @tweets = Tweet.includes(:user).order("updated_at DESC")
+      @tweets = Tweet.includes(:user).page(params[:page]).per(10).order("updated_at DESC")
       render :index
     end
   end

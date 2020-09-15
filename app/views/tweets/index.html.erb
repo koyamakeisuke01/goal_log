@@ -38,7 +38,7 @@
       ログインしてね！
     <% end %>
   </div>
-  <div class="top-right">
+  <div class="top-right jscroll">
     <% if @tweets.count >= 1 %>
       <% @tweets.each do |tweet| %>
         <div class="tweet-all">
@@ -84,11 +84,9 @@
           </div>
         </div>
       <% end %>
-      <div class="pagenation">
+      <div class="pagenation-tweets">
         <%= paginate @tweets %>
-        <%= page_entries_info @tweets %>
       </div>
-    </div>
     <% else %>
       <div>
         <h5>ここにあなたとフォローしているユーザーの活動報告が表示されます。</h5>
@@ -101,4 +99,5 @@
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
 
