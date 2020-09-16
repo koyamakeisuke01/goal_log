@@ -18,6 +18,13 @@
   flex-wrap: wrap;
   margin-right: 130px;
   margin-left: 130px;
+  margin-top: 8vh;
+}
+
+.sticky {
+  position: fixed;
+  width: 45%;
+  top: 20vh;
 }
 
 .top-left {
