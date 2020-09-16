@@ -1,32 +1,33 @@
 <%= render "shared/header"%>
 <div class="container">
-
   <div class="top-left">
-    <div class="user-info">
-      <div class="user-image">
-        <% if @user.avatar.attached? %>
-          <%= image_tag @user.avatar, class: "avatar_image" %>
-        <% else %>
-          <%= image_tag("default-avatar.jpg", class:"avatar_image") %>
-        <% end %>
-      </div>
-      <div class="user-main">
-        <div class="show-user-name">
-          <%= @user.name %>
-        </div>
-        <div class="edit-user-btn-area">
-          <% if @user == current_user %>
-            <%= link_to "プロフィールを編集", edit_user_path, class:"edit-user-btn" %>
+    <div class="sticky">
+      <div class="user-info">
+        <div class="user-image">
+          <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar, class: "avatar_image" %>
+          <% else %>
+            <%= image_tag("default-avatar.jpg", class:"avatar_image") %>
           <% end %>
         </div>
+        <div class="user-main">
+          <div class="show-user-name">
+            <%= @user.name %>
+          </div>
+          <div class="edit-user-btn-area">
+            <% if @user == current_user %>
+              <%= link_to "プロフィールを編集", edit_user_path, class:"edit-user-btn" %>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="introduction-area">
-      <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
+      <div class="introduction-area">
+        <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
+      </div>
     </div>
   </div>
 
-  <div class="top-right">
+  <div class="top-right jscroll">
     <% if @tweets.count >= 1 %>
       <% @tweets.each do |tweet| %>
         <div class="tweet-all">
@@ -72,6 +73,9 @@
           </div>
         </div>
       <% end %>
+      <div class="pagenation-tweets">
+        <%= paginate @tweets %>
+      </div>
     <% else %>
       <div>
         <h5>ここに<%= @user.name %>さんが投稿した活動報告の一覧が表示されます。</h5><br>
@@ -80,5 +84,9 @@
       </div>
     <% end %>
   </div>
-  
 </div>
+
+<%= render "shared/footer"%>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+

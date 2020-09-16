@@ -21,6 +21,12 @@
   margin-top: 8vh;
 }
 
+.sticky {
+  position: fixed;
+  width: 45%;
+  top: 20vh;
+}
+
 .top-left {
   flex: 0 0 50%;
   max-width: 50%;
