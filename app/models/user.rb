@@ -15,5 +15,15 @@ class User < ApplicationRecord
   has_many :tasks
   has_one_attached :avatar
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 8 }
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email,
+              uniqueness: true,
+              format: { with: VALID_EMAIL_REGEX }
+
+  VALID_PASSWORD_REGEX = /(?=.*\d+.*)(?=.*[a-zA-Z]+.*)./
+  validates :password,
+              format: { with: VALID_PASSWORD_REGEX,
+                        message: "は英字と数字の両方を含めて設定してください" }
 end
