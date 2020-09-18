@@ -247,6 +247,7 @@
 }
 
 .image-submit {
+  margin-top: 2vh;
   width: 80%;
   display: flex;
   justify-content: space-between;
