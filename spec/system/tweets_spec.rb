@@ -9,11 +9,7 @@ RSpec.describe 'ツイート投稿', type: :system do
   context 'ツイート投稿ができるとき'do
     it 'ログインしたユーザーは新規投稿できる（テキストと画像）' do
       # ログインする
-      visit new_user_session_path
-      fill_in 'user_email', with: @user.email
-      fill_in 'user_password', with: @user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@user)
       # 新規投稿ページへのリンクがあることを確認する
       expect(page).to have_content('タイムライン')
       # 投稿ページに移動する
@@ -34,11 +30,7 @@ RSpec.describe 'ツイート投稿', type: :system do
     end
     it 'ログインしたユーザーは新規投稿できる（テキストのみ）' do
       # ログインする
-      visit new_user_session_path
-      fill_in 'user_email', with: @user.email
-      fill_in 'user_password', with: @user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@user)
       # 新規投稿ページへのリンクがあることを確認する
       expect(page).to have_content('タイムライン')
       # 投稿ページに移動する
@@ -56,11 +48,7 @@ RSpec.describe 'ツイート投稿', type: :system do
     end
     it 'ログインしたユーザーは新規投稿できる（画像のみ）' do
       # ログインする
-      visit new_user_session_path
-      fill_in 'user_email', with: @user.email
-      fill_in 'user_password', with: @user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@user)
       # 新規投稿ページへのリンクがあることを確認する
       expect(page).to have_content('タイムライン')
       # 投稿ページに移動する
@@ -86,11 +74,7 @@ RSpec.describe 'ツイート投稿', type: :system do
     end
     it '送る値が空の為、メッセージの送信に失敗すること' do
       # ログインする
-      visit new_user_session_path
-      fill_in 'user_email', with: @user.email
-      fill_in 'user_password', with: @user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq root_path
+      sign_in(@user)
       # 新規投稿ページへのリンクがあることを確認する
       expect(page).to have_content('タイムライン')
       # 投稿ページに移動する
@@ -102,5 +86,17 @@ RSpec.describe 'ツイート投稿', type: :system do
       # 元のページに戻ってくることを確認する
       expect(current_path).to eq tweets_path
     end
+  end
+end
+
+RSpec.describe 'ツイート削除', type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+    @tweet_text = Faker::Lorem.sentence
+    @tweet_image = Rails.root.join('public/images/test_image.png')
+  end
+
+  it "投稿者はツイートを削除できる" do
+    sign_in(@user)
   end
 end
