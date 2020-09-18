@@ -10,8 +10,8 @@
       const blobImage = document.createElement('img');
       blobImage.setAttribute('src', blob);
       blobImage.setAttribute('id', 'tweet-img');
-      blobImage.width = 400;
-      blobImage.height = 400;
+      blobImage.width = 200;
+      blobImage.height = 200;
 
       // 生成したHTMLの要素をブラウザに表示
       imageElement.appendChild(blobImage);
