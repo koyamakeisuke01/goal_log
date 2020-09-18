@@ -88,15 +88,3 @@ RSpec.describe 'ツイート投稿', type: :system do
     end
   end
 end
-
-RSpec.describe 'ツイート削除', type: :system do
-  before do
-    @user = FactoryBot.create(:user)
-    @tweet_text = Faker::Lorem.sentence
-    @tweet_image = Rails.root.join('public/images/test_image.png')
-  end
-
-  it "投稿者はツイートを削除できる" do
-    sign_in(@user)
-  end
-end
