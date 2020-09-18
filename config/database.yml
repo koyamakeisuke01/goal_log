@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: goal_log_production
-  username: goal_log
-  password: <%= ENV['GOAL_LOG_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
