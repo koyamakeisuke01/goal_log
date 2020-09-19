@@ -1,3 +1,29 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.title-contents {
+  width: 100vw;
+  height: 100vh;
+  background-image: image-url('foot-step.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+.service-title {
+  font-size: 9vh;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.service-explain {
+  font-size: 2.7vh;
+  line-height: 40px;
+}
