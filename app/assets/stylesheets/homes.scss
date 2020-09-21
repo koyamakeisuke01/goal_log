@@ -15,10 +15,14 @@
   justify-content: center;
   padding: 5vh 15vw;
   color: #fff;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+  text-shadow: 2px  2px 5px black,
+            -2px  2px 5px black,
+            2px -2px 5px black,
+            -2px -2px 5px black;
 }
 
 .service-title {
+  margin-bottom: 1vh;
   font-size: 9vh;
   font-family: 'Times New Roman', Times, serif;
 }
@@ -26,4 +30,85 @@
 .service-explain {
   font-size: 2.7vh;
   line-height: 40px;
+  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif; 
 }
+
+/* FURIMAが選ばれる3つの理由部分 */
+.select-reason-contents {
+  padding: 5vh 12vw;
+}
+
+.select-reason-contents>.title {
+  margin-top: 5vh;
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 5vh;
+  position: relative;
+}
+
+.title-english {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.select-reason-contents>.title::after {
+  content: '';
+  width: 150px;
+  height: 4px;
+  background-color: #191970;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.reason-lists {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.reason-lists>.list {
+  width: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.list-pict {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 70%;
+}
+
+.reason-list-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 45px;
+  background-color: #191970;
+  color: #fff;
+}
+
+.reason-list-text {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 50px;
+}
+
+.reason-list-blue-text {
+  color: #191970;
+  border-bottom: 1px solid #191970;
+}
+
+.reason-list-description {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* //FURIMAが選ばれる3つの理由部分 */
