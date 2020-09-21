@@ -22,7 +22,7 @@
             <%= render 'shared/error_messages', model: f.object %>
             <div class="new-tweet-field">
               <div class="tweet-post">
-                <%= f.text_area :text, class:"tweets-text", placeholder:"投稿内容（140文字まで）" ,rows:"3" ,maxlength:"140" %>
+                <%= f.text_area :text, class:"tweets-text", placeholder:"活動報告を投稿（140文字まで）" ,rows:"3" ,maxlength:"140" %>
               </div>
             </div>
             <div class="image-submit">    
@@ -90,13 +90,7 @@
         <%= paginate @tweets %>
       </div>
     <% else %>
-      <div>
-        <h5>ここにあなたとフォローしているユーザーの活動報告が表示されます。</h5>
-        <h5>プロフィールや投稿から共通点などを探してみましょう！</h5>
-        <div>
-          <%= link_to "探す", "#" %>
-        </div>
-      </div>
+      <p>投稿はありません</p>
     <% end %>
   </div>
 </div>

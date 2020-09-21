@@ -76,6 +76,67 @@
   </div>
 </div>
 
+<div class='toppage-tweets'>
+  <h2 class='title'>
+    最近投稿された活動報告
+  </h2>
+  <div class="top-right jscroll">
+    <% if @tweets.count >= 1 %>
+      <% @tweets.each do |tweet| %>
+        <div class="tweet-all">
+          <div class="tweet-left">
+            <% if tweet.user.avatar.attached? %>
+              <%= link_to user_path(tweet.user.id) do %>
+                <%= image_tag tweet.user.avatar, class: "tweet-avatar" %>
+              <% end %>
+            <% else %>
+              <%= link_to user_path(tweet.user.id) do %>
+                <%= image_tag("default-avatar.jpg", class:"tweet-avatar") %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="tweet-right">
+            <div class="tweet-left-name">
+              <a href="/users/<%= tweet.user.id %>", class="user-name">
+                <%= tweet.user.name %>
+              </a>
+              <span class="tweet-date">・<%= tweet.updated_at.to_s(:datetime_jp) %></span>
+            </div>
+            <div class="tweet-right-crud">
+              <%= link_to tweet_path(tweet.id), class:"show-link" do %>
+                <i class="fas fa-info-circle"></i>詳細
+              <% end %>
+              <% if user_signed_in? && current_user.id == tweet.user_id %>
+                <%= link_to edit_tweet_path(tweet.id), class:"edit-link" do %>
+                  <i class="fas fa-edit"></i>編集
+                <% end %>
+                <%= link_to tweet_path(tweet.id), class:"trash-link", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                  <i class="fas fa-trash"></i>削除
+                <% end %>
+              <% end %>
+            </div>
+            <div class="tweet-bottom-text">
+              <%= safe_join(tweet.text.split("\n"),tag(:br)) %>
+              <div>
+                <% if tweet.image.attached? %>
+                  <%= image_tag tweet.image, class: "toppage-tweet-bottom-image" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="pagenation-tweets">
+        <%= paginate @tweets %>
+      </div>
+    <% else %>
+      <div>
+        <p>投稿はありません</p>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-
-<%= render "shared/footer"%>
+<div class='toppage-footer'>
+  <p>© GOAL-LOG</p>
+</div>

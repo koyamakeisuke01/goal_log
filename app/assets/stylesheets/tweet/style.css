@@ -338,7 +338,13 @@
 .tweet-bottom-image {
   margin-top: 1vh;
   width: 50%;
-  height: 30vh;
+  height: 50%;
+}
+
+.toppage-tweet-bottom-image {
+  margin-top: 1vh;
+  width: 25%;
+  height: 25%;
 }
 
 .tweet-show-main {

@@ -110,7 +110,6 @@
   margin-top: 10px;
 }
 
-/* FURIMAの特徴 */
 .feature-contents {
   padding: 10vh 15vw;
   background-color: rgb(250, 250, 250);
@@ -206,4 +205,28 @@
 .now-start-orange:hover {
   color: #ff8b0f;
   background-color: rgb(223, 221, 221);
+}
+
+.toppage-tweets {
+  padding: 10vh 15vw;
+  background-color: rgb(245, 245, 245);
+}
+
+.toppage-tweets>.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 12vh;
+  position: relative;
+}
+
+.toppage-tweets>.title::after {
+  content: '';
+  width: 150px;
+  height: 4px;
+  background-color: #191970;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
