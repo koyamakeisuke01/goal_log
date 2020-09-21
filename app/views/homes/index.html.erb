@@ -15,7 +15,6 @@
   </p>
 </div>
 
-<%# FURIMAが選ばれる3つの理由部分 %>
 <div class='select-reason-contents'>
   <h2 class='title'>
     <span class="title-english">GOAL-LOG </span>が、選ばれる3つの理由
@@ -59,5 +58,24 @@
     </li>
   </ul>
 </div>
-<%# //FURIMAが選ばれる3つの理由部分 %>
+
+<div class='feature-contents'>
+  <h2 class='title'>
+    さっそく始めてみましょう
+  </h2>
+  <div class="now-start">
+    <div class='now-start-registration'>
+      <%= link_to '新規登録', new_user_registration_path, class:"now-start-green" %>
+    </div>
+    <div class='now-start-login'>
+      <%= link_to 'ログイン', new_user_session_path, class:"now-start-blue" %>
+    </div>
+  </div>
+  <div class='guest-login-btn1'>
+    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class:"now-start-orange", method: :post %>
+  </div>
+</div>
+
+
+
 <%= render "shared/footer"%>

@@ -12,7 +12,6 @@ class TasksController < ApplicationController
     @tasks = @q.result(distinct: true).page(params[:page]).per(5).order("updated_at DESC")
     @todo_tasks = current_user.tasks.where(done: false)
     @done_tasks = current_user.tasks.where(done: true)
-    # binding.pry
     @task = Task.new
   end
 

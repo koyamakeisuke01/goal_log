@@ -33,9 +33,8 @@
   font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif; 
 }
 
-/* FURIMAが選ばれる3つの理由部分 */
 .select-reason-contents {
-  padding: 5vh 12vw;
+  padding: 8vh 12vw;
 }
 
 .select-reason-contents>.title {
@@ -111,4 +110,100 @@
   margin-top: 10px;
 }
 
-/* //FURIMAが選ばれる3つの理由部分 */
+/* FURIMAの特徴 */
+.feature-contents {
+  padding: 10vh 15vw;
+  background-color: rgb(250, 250, 250);
+}
+
+.feature-contents>.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 12vh;
+  position: relative;
+}
+
+.feature-contents>.title::after {
+  content: '';
+  width: 150px;
+  height: 4px;
+  background-color: #191970;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.now-start {
+  display: flex;
+  justify-content: center;
+  margin: 5vh 30%;
+}
+
+.now-start-registration {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.now-start-login {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.guest-login-btn1 {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.now-start-green {
+  width: 100%;
+  background: #005333;
+  opacity: 0.8;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.now-start-green:hover {
+  color: #003d26;
+  background-color: rgb(223, 221, 221);
+}
+
+.now-start-blue {
+  width: 100%;
+  background: #0f5894;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.now-start-blue:hover {
+  color: #003a69;
+  background-color: rgb(223, 221, 221);
+}
+
+.now-start-orange {
+  width: 100%;
+  background: #efa04c;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.now-start-orange:hover {
+  color: #ff8b0f;
+  background-color: rgb(223, 221, 221);
+}
