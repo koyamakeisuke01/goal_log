@@ -158,6 +158,12 @@
   text-align: center;
 }
 
+.guest-login-annotation {
+  width: 50%;
+  margin: 4vh auto 0 auto;
+  text-align: center;
+}
+
 .now-start-green {
   width: 100%;
   background: #005333;
@@ -168,6 +174,10 @@
   padding: 20px;
   font-size: 20px;
   cursor: pointer;
+}
+
+.guest-login-border-bottom {
+  border-bottom: 1px solid black;
 }
 
 .now-start-green:hover {
