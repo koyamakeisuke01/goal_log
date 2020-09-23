@@ -1,5 +1,146 @@
 <%= render "shared/header"%>
 
-homes#index
+<div class='title-contents'>
+  <h2 class='service-title'>
+    GOAL-LOG
+  </h2>
+  <p class='service-explain'>
+    誰でも簡単に目標を達成し
+  </p>
+  <p class='service-explain'>
+    なりたい自分になれる
+  </p>
+  <p class='service-explain'>
+    認知科学に基づいたタスク管理アプリです
+  </p>
+</div>
 
-<%= render "shared/footer"%>
+<div class='select-reason-contents'>
+  <h2 class='title'>
+    <span class="title-english">GOAL-LOG </span>が、選ばれる3つの理由
+  </h2>
+  <ul class='reason-lists'>
+    <li class='list'>
+      <%= image_tag "intro-1.jpg", class:"list-pict" %>
+      <span class='reason-list-number'>1</span>
+      <h3 class='reason-list-text'>
+        <span class='reason-list-blue-text'>5秒</span>
+        ですぐにタスクを登録
+      </h3>
+      <p class='reason-list-description'>
+        入力するだけで簡単にタスク登録できる！
+      </p>
+    </li>
+    <li class='list'>
+      <%= image_tag "intro-2.jpg", class:"list-pict" %>
+      <span class='reason-list-number'>2</span>
+      <h3 class='reason-list-text'>
+        <span class='reason-list-blue-text'>シンプル</span>
+        で使いやすい
+      </h3>
+      <p class='reason-list-description'>
+        めんどくさい入力は必要なし！
+      </p>
+      <p class='reason-list-description'>
+        検索も管理もスムーズ！
+      </p>
+    </li>
+    <li class='list'>
+      <%= image_tag "intro-3.jpg", class:"list-pict" %>
+      <span class='reason-list-number'>3</span>
+      <h3 class='reason-list-text'>
+        ユーザー同士で
+        <span class='reason-list-blue-text'>目標達成を共有</span>
+      </h3>
+      <p class='reason-list-description'>
+        仲間と一緒に頑張ることで共に成長できる！
+      </p>
+    </li>
+  </ul>
+</div>
+
+<div class='feature-contents'>
+  <h2 class='title'>
+    さっそく始めてみましょう
+  </h2>
+  <div class="now-start">
+    <div class='now-start-registration'>
+      <%= link_to '新規登録', new_user_registration_path, class:"now-start-green" %>
+    </div>
+    <div class='now-start-login'>
+      <%= link_to 'ログイン', new_user_session_path, class:"now-start-blue" %>
+    </div>
+  </div>
+  <div class='guest-login-btn1'>
+    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class:"now-start-orange", method: :post %>
+  </div>
+  <div class='guest-login-annotation'>
+    <p>※ ゲストログインは<span class="guest-login-border-bottom">ポートフォリオ閲覧用です。</span></p>
+    <p>メールアドレス等を入力せず閲覧いただけます。</p>
+  </div>
+</div>
+
+<div class='toppage-tweets'>
+  <h2 class='title'>
+    最近投稿された活動報告
+  </h2>
+  <div class="top-right jscroll">
+    <% if @tweets.count >= 1 %>
+      <% @tweets.each do |tweet| %>
+        <div class="tweet-all">
+          <div class="tweet-left">
+            <% if tweet.user.avatar.attached? %>
+              <%= link_to user_path(tweet.user.id) do %>
+                <%= image_tag tweet.user.avatar, class: "tweet-avatar" %>
+              <% end %>
+            <% else %>
+              <%= link_to user_path(tweet.user.id) do %>
+                <%= image_tag("default-avatar.jpg", class:"tweet-avatar") %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="tweet-right">
+            <div class="tweet-left-name">
+              <a href="/users/<%= tweet.user.id %>", class="user-name">
+                <%= tweet.user.name %>
+              </a>
+              <span class="tweet-date">・<%= tweet.updated_at.to_s(:datetime_jp) %></span>
+            </div>
+            <div class="tweet-right-crud">
+              <%= link_to tweet_path(tweet.id), class:"show-link" do %>
+                <i class="fas fa-info-circle"></i>詳細
+              <% end %>
+              <% if user_signed_in? && current_user.id == tweet.user_id %>
+                <%= link_to edit_tweet_path(tweet.id), class:"edit-link" do %>
+                  <i class="fas fa-edit"></i>編集
+                <% end %>
+                <%= link_to tweet_path(tweet.id), class:"trash-link", method: :delete, data: { confirm: '本当に削除しますか？' } do %>
+                  <i class="fas fa-trash"></i>削除
+                <% end %>
+              <% end %>
+            </div>
+            <div class="tweet-bottom-text">
+              <%= safe_join(tweet.text.split("\n"),tag(:br)) %>
+              <div>
+                <% if tweet.image.attached? %>
+                  <%= image_tag tweet.image, class: "toppage-tweet-bottom-image" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="pagenation-tweets">
+        <%= paginate @tweets %>
+      </div>
+    <% else %>
+      <div>
+        <p>投稿はありません</p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class='toppage-footer'>
+  <p>© GOAL-LOG</p>
+</div>

@@ -1,3 +1,320 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.title-contents {
+  width: 100vw;
+  height: 100vh;
+  background-image: image-url('foot-step.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 2px  2px 5px black,
+            -2px  2px 5px black,
+            2px -2px 5px black,
+            -2px -2px 5px black;
+}
+
+.service-title {
+  margin-bottom: 1vh;
+  font-size: 9vh;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.service-explain {
+  font-size: 2.7vh;
+  line-height: 40px;
+  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif; 
+}
+
+.select-reason-contents {
+  padding: 8vh 12vw;
+}
+
+.select-reason-contents>.title {
+  margin-top: 5vh;
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 5vh;
+  position: relative;
+}
+
+.title-english {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.select-reason-contents>.title::after {
+  content: '';
+  width: 150px;
+  height: 4px;
+  background-color: #191970;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.reason-lists {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.reason-lists>.list {
+  width: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.list-pict {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 70%;
+}
+
+.reason-list-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 45px;
+  background-color: #191970;
+  color: #fff;
+}
+
+.reason-list-text {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 50px;
+}
+
+.reason-list-blue-text {
+  color: #191970;
+  border-bottom: 1px solid #191970;
+}
+
+.reason-list-description {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.feature-contents {
+  padding: 10vh 15vw;
+  background-color: rgb(250, 250, 250);
+}
+
+.feature-contents>.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 12vh;
+  position: relative;
+}
+
+.feature-contents>.title::after {
+  content: '';
+  width: 150px;
+  height: 4px;
+  background-color: #191970;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.now-start {
+  display: flex;
+  justify-content: center;
+  margin: 5vh 30%;
+}
+
+.now-start-registration {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.now-start-login {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.guest-login-btn1 {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.guest-login-annotation {
+  width: 50%;
+  margin: 4vh auto 0 auto;
+  text-align: center;
+}
+
+.now-start-green {
+  width: 100%;
+  background: #005333;
+  opacity: 0.8;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.guest-login-border-bottom {
+  border-bottom: 1px solid black;
+}
+
+.now-start-green:hover {
+  color: #003d26;
+  background-color: rgb(223, 221, 221);
+}
+
+.now-start-blue {
+  width: 100%;
+  background: #0f5894;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.now-start-blue:hover {
+  color: #003a69;
+  background-color: rgb(223, 221, 221);
+}
+
+.now-start-orange {
+  width: 100%;
+  background: #efa04c;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.now-start-orange:hover {
+  color: #ff8b0f;
+  background-color: rgb(223, 221, 221);
+}
+
+.toppage-tweets {
+  padding: 10vh 15vw;
+  background-color: rgb(245, 245, 245);
+}
+
+.toppage-tweets>.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 12vh;
+  position: relative;
+}
+
+.toppage-tweets>.title::after {
+  content: '';
+  width: 150px;
+  height: 4px;
+  background-color: #191970;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tweet-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tweet-start-registration {
+  width: 25%;
+  margin-top: 3vh;
+}
+
+.tweet-start-login {
+  width: 25%;
+  margin-top: 3vh;
+}
+
+.tweet-guest-login-btn1 {
+  width: 100%;
+  margin-top: 6vh;
+}
+
+.tweet-guest-login-annotation {
+  width: 100%;
+  margin: 4vh auto 0 auto;
+}
+
+.tweet-start-green {
+  width: 100%;
+  background: #005333;
+  opacity: 0.8;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.guest-login-border-bottom {
+  border-bottom: 1px solid black;
+}
+
+.tweet-start-green:hover {
+  color: #003d26;
+  background-color: rgb(223, 221, 221);
+}
+
+.tweet-start-blue {
+  width: 100%;
+  background: #0f5894;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.tweet-start-blue:hover {
+  color: #003a69;
+  background-color: rgb(223, 221, 221);
+}
+
+.tweet-start-orange {
+  width: 100%;
+  background: #efa04c;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.tweet-start-orange:hover {
+  color: #ff8b0f;
+  background-color: rgb(223, 221, 221);
+}
