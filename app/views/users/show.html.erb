@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="introduction-area">
-        <%= safe_join(@user.introduction.split("\n"),tag(:br)) %>
+        <%= @user.introduction %>
       </div>
     </div>
   </div>
@@ -63,7 +63,7 @@
               <% end %>
             </div>
             <div class="tweet-bottom-text">
-              <%= safe_join(tweet.text.split("\n"),tag(:br)) %>
+              <%= tweet.text %>
               <div>
                 <% if tweet.image.attached? %>
                   <%= image_tag tweet.image, class: "tweet-bottom-image" %>
