@@ -3,6 +3,23 @@
   <div class="top-left">
     <div class="sticky">
       <% if user_signed_in? %>
+        <div class="tyuui-area">
+          <div class="mokuteki">
+            ＜活動報告の目的＞
+          </div>
+          <p>
+            ・行動習慣を付けること
+          </p>
+          <p>
+            ・継続をすることで毎日１ミリでも進むこと
+          </p>
+          <div class="noruma-annotation">
+            今日のノルマ完了報告と明日のノルマの宣言を毎日必ずしましょう！
+          </div>
+          <div class="bareru">
+            やってないとタイムライン上ですぐバレます。
+          </div>
+        </div>
         <div class="user-info">
           <div class="user-image">
             <% if current_user.avatar.attached? %>
@@ -36,7 +53,34 @@
           </div>
         <% end %>
       <% else %>
-        ログインしてね！
+        <div class="mokuteki">
+          ＜活動報告の目的＞
+        </div>
+        <p>
+          ・行動習慣を付けること
+        </p>
+        <p>
+          ・継続をすることで毎日１ミリでも進むこと
+        </p>
+        <div class="starrt">
+          理想の自分になるために、<br>活動報告を始めましょう！
+        </div>
+        <div class="tweet-start">
+          <div class='tweet-start-registration'>
+            <%= link_to '新規登録', new_user_registration_path, class:"tweet-start-green" %>
+          </div>
+          <div class='tweet-start-login'>
+            <%= link_to 'ログイン', new_user_session_path, class:"tweet-start-blue" %>
+          </div>
+        </div>
+        <div class='tweet-guest-login-btn1'>
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class:"tweet-start-orange", method: :post %>
+        </div>
+        <div class='tweet-guest-login-annotation'>
+          <p>※ ゲストログインは<span class="guest-login-border-bottom">ポートフォリオ閲覧用です。</span></p>
+          <p>メールアドレス等を入力せず閲覧いただけます。</p>
+        </div>
+
       <% end %>
     </div>
   </div>

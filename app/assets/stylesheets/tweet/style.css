@@ -30,7 +30,35 @@
 .top-left {
   flex: 0 0 50%;
   max-width: 50%;
-  margin-top: 40px;
+  margin-top: 30px;
+}
+
+.tyuui-area {
+  margin-top: -8vh;
+  margin-bottom: 6vh;
+  background-color: #e9ffff;
+  margin-right: 8vw;
+  padding: 1vh 0 1vh 1vw;
+}
+
+.mokuteki {
+  font-size: large;
+  font-weight: bold;
+}
+
+.bareru {
+  
+}
+.starrt {
+  margin-top: 6vh;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.noruma-annotation {
+  margin-top: 1vh;
+  color: red;
+  font-weight: bold;
 }
 
 .user-info {

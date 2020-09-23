@@ -240,3 +240,81 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+.tweet-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tweet-start-registration {
+  width: 25%;
+  margin-top: 3vh;
+}
+
+.tweet-start-login {
+  width: 25%;
+  margin-top: 3vh;
+}
+
+.tweet-guest-login-btn1 {
+  width: 100%;
+  margin-top: 6vh;
+}
+
+.tweet-guest-login-annotation {
+  width: 100%;
+  margin: 4vh auto 0 auto;
+}
+
+.tweet-start-green {
+  width: 100%;
+  background: #005333;
+  opacity: 0.8;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.guest-login-border-bottom {
+  border-bottom: 1px solid black;
+}
+
+.tweet-start-green:hover {
+  color: #003d26;
+  background-color: rgb(223, 221, 221);
+}
+
+.tweet-start-blue {
+  width: 100%;
+  background: #0f5894;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.tweet-start-blue:hover {
+  color: #003a69;
+  background-color: rgb(223, 221, 221);
+}
+
+.tweet-start-orange {
+  width: 100%;
+  background: #efa04c;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.tweet-start-orange:hover {
+  color: #ff8b0f;
+  background-color: rgb(223, 221, 221);
+}
