@@ -25,5 +25,5 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /(?=.*\d+.*)(?=.*[a-zA-Z]+.*)./
   validates :password,
               format: { with: VALID_PASSWORD_REGEX,
-                        message: "は英字と数字の両方を含めて設定してください" }
+                        message: "は英字と数字の両方を含めて設定してください" }, on: :create
 end
